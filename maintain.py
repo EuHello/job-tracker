@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pandas as pd
 import datetime
 
@@ -6,13 +8,19 @@ df = pd.read_csv(my_file)
 
 
 def check_dates(value: str):
-    today = datetime.date.today()
-    if value is None:
-        return today
-    if value == 'today':
-        return str(today)
-    else:
+    if isinstance(value, datetime.date):
         return value
+    elif isinstance(value, str):
+        value = value.lower().strip()
+        if value == 'today' or len(value) == 0:
+            return datetime.date.today()
+        else:
+            try:
+                return datetime.datetime.strptime(value, '%Y-%m-%d').date()
+            except Exception as err:
+                print("Unable to parse date string into date class {}".format(err))
+    else:
+        return datetime.date.today()
 
 
 df['Date'] = df['Date'].fillna(datetime.date.today())
