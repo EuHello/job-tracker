@@ -1,7 +1,7 @@
 #!/bin/bash
 # add_job.sh
 
-echo "Enter jobs applied in this format: date(blank=today), job title, company name"
+echo "Enter jobs applied in this format: date(blank=today or yyyy-mm-dd), job title, company name"
 read inputs
 echo "$inputs" >> "data.csv"
 
