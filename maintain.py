@@ -4,7 +4,7 @@ import pandas as pd
 import datetime
 
 my_file = 'data.csv'
-df = pd.read_csv(my_file)
+df = pd.read_csv(my_file, sep=';')
 
 
 def check_dates(value: str):
@@ -25,7 +25,7 @@ def check_dates(value: str):
 
 df['Date'] = df['Date'].fillna(datetime.date.today())
 df['Date'] = df['Date'].map(check_dates)
-df = df.sort_values(by=['Date'])
+# df = df.sort_values(by=['Date'])
 
 print(df)
-df.to_csv(my_file, index=False)
+df.to_csv(my_file, sep=';', index=False)
