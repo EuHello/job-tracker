@@ -7,5 +7,6 @@ echo "Enter jobs applied in this format: date(blank=today or yyyy-mm-dd); job ti
 read inputs
 echo "$inputs" >> "data.csv"
 
-echo "Running maintain.py"
-python3 maintain.py
+cmd1="maintain.py -m"
+echo "Running $cmd1"
+python3 $cmd1
