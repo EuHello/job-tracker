@@ -45,17 +45,17 @@ def main():
             df['Date'] = df['Date'].map(fill_dates)
             df = df.map(clean_words)
             print(df.tail())
-            print('data is cleaned')
+            print('Data cleaned')
             df.to_csv(my_file, sep=';', index=False)
 
         elif args[0] == '-s':
             df = df.sort_values(by=['Date'])
             print(df.tail())
-            print('data is sorted')
+            print('Data sorted')
             df.to_csv(my_file, sep=';', index=False)
 
     else:
-        print('arg not found')
+        print('Arg not found')
         print('-m to clean/check file, -s to sort by date')
 
 
