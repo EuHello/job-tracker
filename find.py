@@ -14,14 +14,20 @@ def main():
         search_term = args[1]
 
         if args[0] == '-c':
-            print(f'searching for {search_term}')
+            print(f'Searching for Company names similar to: {search_term} ...')
             results = df.loc[df['Company'].str.contains(search_term)]
-            print(results)
+            if len(results) > 0:
+                print(results)
+            else:
+                print("No similar Company names found")
 
         elif args[0] == '-j':
-            print(f'searching for {search_term}')
+            print(f'Searching for Job Titles similar to: {search_term} ...')
             results = df.loc[df['Job Title'].str.contains(search_term)]
-            print(results)
+            if len(results) > 0:
+                print(results)
+            else:
+                print("No similar Job Titles found")
 
     else:
         print('arg not found')
